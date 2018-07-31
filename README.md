@@ -4,6 +4,8 @@ A hubot script for locking assets
 
 See [`src/hubot-lock.coffee`](src/hubot-lock.coffee) for full documentation.
 
+[![Build Status](https://travis-ci.org/unit9/hubot-lock.svg?branch=master)](https://travis-ci.org/unit9/hubot-lock)
+
 ## Installation
 
 In hubot project repo, run:
