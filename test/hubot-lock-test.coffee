@@ -80,3 +80,16 @@ describe 'hubot-lock', ->
             ['alice', '@hubot list all locks']
             ['hubot', '@alice Nothing is locked, everything is allowed']
           ]
+
+  it 'can delete all locks, just in case', ->
+    @room.user.say('alice', '@hubot lock Main.unity').then =>
+        @room.user.say('bob', '@hubot delete all locks').then =>
+          @room.user.say('bob', '@hubot lock Main.unity').then =>
+            expect(@room.messages).to.eql [
+              ['alice', '@hubot lock Main.unity']
+              ['hubot', '@alice :lock: OK, locked *Main.unity* for you']
+              ['bob', '@hubot delete all locks']
+              ['hubot', '@bob :warning: Deleted all locks']
+              ['bob', '@hubot lock Main.unity']
+              ['hubot', '@bob :lock: OK, locked *Main.unity* for you']
+            ]

@@ -67,3 +67,8 @@ module.exports = (robot) ->
       text += "\n:lock: *#{lock.name}* locked by <@#{lock.user}>"
 
     res.reply text
+
+  robot.respond /delete all locks/, (res) ->
+    robot.brain.set('locks', {})
+
+    res.reply ':warning: Deleted all locks'
