@@ -53,3 +53,17 @@ module.exports = (robot) ->
         res.reply ":x: Nope, *#{name}* is locked by <@#{locks[name_lower].user}>"
     else
       res.reply "#{name} is not locked"
+
+  robot.respond /list all locks/, (res) ->
+    locks = robot.brain.get('locks') or {}
+
+    if Object.keys(locks).length == 0
+      res.reply 'Nothing is locked, everything is allowed'
+      return
+
+    text = "Currently locked:"
+
+    for name, lock of locks
+      text += "\n:lock: *#{lock.name}* locked by <@#{lock.user}>"
+
+    res.reply text

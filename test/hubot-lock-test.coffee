@@ -51,3 +51,32 @@ describe 'hubot-lock', ->
             ['bob', '@hubot lock Main.unity']
             ['hubot', '@bob :lock: OK, locked *Main.unity* for you']
           ]
+
+  it 'can list all locks', ->
+    @room.user.say('alice', '@hubot lock Main.unity').then =>
+      @room.user.say('alice', '@hubot unlock Main.unity').then =>
+        @room.user.say('bob', '@hubot lock Menu.unity').then =>
+          @room.user.say('alice', '@hubot list all locks').then =>
+            expect(@room.messages).to.eql [
+              ['alice', '@hubot lock Main.unity']
+              ['hubot', '@alice :lock: OK, locked *Main.unity* for you']
+              ['alice', '@hubot unlock Main.unity']
+              ['hubot', '@alice :unlock: Unlocked *Main.unity*']
+              ['bob', '@hubot lock Menu.unity']
+              ['hubot', '@bob :lock: OK, locked *Menu.unity* for you']
+              ['alice', '@hubot list all locks']
+              ['hubot', '@alice Currently locked:\n:lock: *Menu.unity* locked by <@bob>']
+            ]
+
+  it 'can handle empty locks list', ->
+    @room.user.say('alice', '@hubot lock Main.unity').then =>
+      @room.user.say('alice', '@hubot unlock Main.unity').then =>
+        @room.user.say('alice', '@hubot list all locks').then =>
+          expect(@room.messages).to.eql [
+            ['alice', '@hubot lock Main.unity']
+            ['hubot', '@alice :lock: OK, locked *Main.unity* for you']
+            ['alice', '@hubot unlock Main.unity']
+            ['hubot', '@alice :unlock: Unlocked *Main.unity*']
+            ['alice', '@hubot list all locks']
+            ['hubot', '@alice Nothing is locked, everything is allowed']
+          ]
