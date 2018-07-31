@@ -1,4 +1,4 @@
-# hubot-hubot-lock
+# hubot-lock
 
 A hubot script for locking assets
 
@@ -8,13 +8,13 @@ See [`src/hubot-lock.coffee`](src/hubot-lock.coffee) for full documentation.
 
 In hubot project repo, run:
 
-`npm install hubot-hubot-lock --save`
+`npm install hubot-lock --save`
 
-Then add **hubot-hubot-lock** to your `external-scripts.json`:
+Then add **hubot-lock** to your `external-scripts.json`:
 
 ```json
 [
-  "hubot-hubot-lock"
+  "hubot-lock"
 ]
 ```
 
@@ -27,4 +27,4 @@ hubot>> hello!
 
 ## NPM Module
 
-https://www.npmjs.com/package/hubot-hubot-lock
+https://www.npmjs.com/package/hubot-lock
