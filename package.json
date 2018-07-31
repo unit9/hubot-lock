@@ -1,7 +1,7 @@
 {
   "name": "hubot-lock",
   "description": "A hubot script for locking assets",
-  "version": "0.0.4",
+  "version": "0.0.5",
   "author": "Krzysztof Skoracki <krzysztof.skoracki@unit9.com>",
   "license": "MIT",
   "keywords": "hubot, hubot-scripts",
