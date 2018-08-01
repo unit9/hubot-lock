@@ -23,8 +23,10 @@ Then add **hubot-lock** to your `external-scripts.json`:
 ## Sample Interaction
 
 ```
-user1>> hubot hello
-hubot>> hello!
+alice>> @hubot lock Main.unity
+hubot>> @alice :lock: OK, locked *Main.unity* for you
+bob>> @hubot lock Main.unity
+hubot>> @bob :x: Nope, *Main.unity* is already locked by <@alice>
 ```
 
 ## NPM Module

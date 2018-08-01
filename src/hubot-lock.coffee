@@ -4,8 +4,14 @@
 # Configuration:
 #
 # Commands:
+#   lock <name> - attempt to lock particular asset
+#   unlock <name> - unlock an asset
+#   list all locks - display list of all locked assets
+#   delete all locks - unlock all assets, even the ones locked by other users
 #
 # Notes:
+#   The bot won't allow two users to lock the same asset.
+#   Each room has separate list of locks.
 #
 # Author:
 #   Krzysztof Skoracki <krzysztof.skoracki@unit9.com>
